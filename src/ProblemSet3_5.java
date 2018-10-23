@@ -22,6 +22,8 @@ public class ProblemSet3_5 {
 		// test your solutions here
 		
 		ps.primes(1, 1000);
+		ps.fibonacci(1);
+		ps.multiples(5, 10, 20);
 	}
 	
 	/**
@@ -35,7 +37,9 @@ public class ProblemSet3_5 {
 	 * @param end
 	 */
 	
-	public void primes(int start, int end) {
+	public void primes(int start, int end) {	
+	
+			
 		
 	}
 	
@@ -78,7 +82,24 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void fibonacci(int n) {
+		int a;
+		int b;
+		int c;
+
 		
+		if (n+n == 0)
+		{
+			System.out.println("The 0th Fibonacci number is 0.");
+		}
+		else if (n+n > 1)
+		{
+			  c = a + n;
+			
+		}
+		System.out.print(n);
+		System.out.print("st");
+		System.out.print("Fibonacci number is");
+		System.out.print(x);
 	}
 	
 	/**
