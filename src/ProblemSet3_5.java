@@ -22,8 +22,9 @@ public class ProblemSet3_5 {
 		// test your solutions here
 		
 		ps.primes(1, 1000);
-		ps.fibonacci(1);
-		ps.multiples(5, 10, 20);
+		ps.palindromicNumbers(5);
+		ps.fibonacci(2);
+		
 	}
 	
 	/**
@@ -67,6 +68,21 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void palindromicNumbers(int number) {
+		int b; 
+			if (number == 0||number == 1 || number == 2 || number == 3 || number == 4 || number == 5 || number == 6 ||number == 7 || number == 8 || number == 9)
+			{
+				System.out.println(number + " is a palindromic number.");
+			}
+			else if (number % 2 == 0)
+			{
+				int sum = 0;
+				sum = (number / 2) * (2) ;
+				if (sum == number)
+				{
+					System.out.println("Is a paindromic number");
+				}
+			}
+	
 		
 	}
 	
@@ -82,24 +98,33 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void fibonacci(int n) {
-		int a;
-		int b;
-		int c;
+		int num = n % 10;
+		int first = 0;
+		int second = 1;
+		int sum = 0;
+		for (int x = 1; x < n; x++)
+		{
+			sum = first + second;
+			first = second;
+			second = sum;
+		}
+		if (num == 1)
+		{
+			System.out.println("The " + n + "st " + "Fibonacci number is " + sum);
+		}
+		else if (num == 2)
+		{
+			System.out.println("The " + n + "nd " + "Fibonacci number is " + sum);
+		}
+		else if (num == 3)
+		{
+			System.out.println("The " + n + "rd " + "Fibonacci number is " + sum);
+		}
+		else
+		{
+			System.out.println("The " + n + "th " + "Fibonacci number is " + sum +".");
+		}
 
-		
-		if (n+n == 0)
-		{
-			System.out.println("The 0th Fibonacci number is 0.");
-		}
-		else if (n+n > 1)
-		{
-			  c = a + n;
-			
-		}
-		System.out.print(n);
-		System.out.print("st");
-		System.out.print("Fibonacci number is");
-		System.out.print(x);
 	}
 	
 	/**
