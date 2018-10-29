@@ -18,13 +18,12 @@ public class ProblemSet3_5 {
 	
 	public static void main(String[] args) {
 		ProblemSet3_5 ps = new ProblemSet3_5();
-		
 		// test your solutions here
-		
-		ps.primes(1, 1000);
-		ps.palindromicNumbers(5);
-		ps.fibonacci(2);
-		
+		ps.testPrimes();
+		ps.testLeapYears();
+		ps.testPalindromicNumbers();
+		ps.testFibonacci();
+		ps.testMultiples();
 	}
 	
 	/**
@@ -39,10 +38,34 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void primes(int start, int end) {	
-	
-			
-		
-	}
+	int read = 0;
+		for(int p = start;p <= end; p++)
+		{
+			boolean isPrime = true;
+			int m;
+			if (p==1 || p == 0) {
+				isPrime = false;
+			}
+			for(int j = 2;j <= p/2; j++)
+			{
+		           m= p % j;
+		           if(m == 0) {
+		        	   isPrime = false;
+		        	   break;
+		           }
+			}
+			if(isPrime) {
+				read++;
+			}
+
+		}
+		if(read == 1) {
+			System.out.println("There is 1 prime number.");
+		}
+		else if (read != 1) {
+		   System.out.println("There are " + read + " prime numbers.");
+        	}
+        }
 	
 	/**
 	 * What are the next @count leap years?
@@ -56,6 +79,45 @@ public class ProblemSet3_5 {
 	
 	public void leapYears(int count) {
 		
+	int lastLeap = 2016; 
+		if (count < 0 || count == 0) {
+			System.out.println("I don't know how to compute the next " + count + " leap years...");
+		}
+		else {
+			System.out.print("The next ");
+					if (count == 1) {
+						System.out.print("leap year is ");
+					}
+					else if (count >= 2) {
+						System.out.print(count + " leap years are ");
+					}
+					for (int i = 1; i <= count; i++) {
+						if (i != count) {
+							if ((lastLeap + (4 * i)) % 400 == 0) {
+								System.out.print((lastLeap + (4 * i)) + ", ");
+							}
+							else if ((lastLeap + (4 * i)) % 400 != 0 && (lastLeap + (4 * i)) % 100 == 0) {
+								System.out.print((lastLeap + (4 * (i + 1))) + ", ");
+								i++;
+								count++; 
+							}
+							else if (count == 2) {
+								System.out.print((lastLeap + (4 * i)) + " ");
+							}
+							else {
+								System.out.print((lastLeap + (4 * i)) + ", ");
+							}
+						}
+						else if (i == count) {
+							if (count != 1) {
+								System.out.println("and " + (lastLeap + (4 * i)) + ".");
+							}
+							else if (count == 1) {
+								System.out.println((lastLeap + (4 * i)) + ".");
+							}
+						}
+					}
+		}
 	}
 	
 	/**
@@ -68,22 +130,22 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void palindromicNumbers(int number) {
-		int b; 
-			if (number == 0||number == 1 || number == 2 || number == 3 || number == 4 || number == 5 || number == 6 ||number == 7 || number == 8 || number == 9)
-			{
-				System.out.println(number + " is a palindromic number.");
-			}
-			else if (number % 2 == 0)
-			{
-				int sum = 0;
-				sum = (number / 2) * (2) ;
-				if (sum == number)
-				{
-					System.out.println("Is a paindromic number");
-				}
-			}
-	
+		int even = 0;
+		int all = 0; 
+		int half = number;
 		
+		while (number > 0) {
+			even = number % 10;    
+			all = (all * 10) + even;    
+			number = number / 10;
+			}    
+		  
+		if (half == all) {
+			System.out.println(half + " is a palindromic number.");
+		}
+		else {
+			System.out.println(half + " is not a palindromic number.");
+		}
 	}
 	
 	/**
@@ -137,6 +199,14 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void multiples(int x, int y, int limit) {
+			long z = 0;
 		
+		for (int k = 0; k < limit; K++) {
+			if (k % x == 0 || k % y == 0) {
+				z = z + k;
+			}
+		}
+		
+		System.out.println("The sum of all multiples of " + x + " and " + y + " less than " + limit + " is " + z + ".");
 	}
 }
